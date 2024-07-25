@@ -1,0 +1,17 @@
+replicaCount: 2
+containerPort: 8080
+
+image:
+  repository: testingkyaw/go-app
+  tag: "v30"
+  pullPolicy: IfNotPresent
+
+service:
+  name: go-service
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+  protocol: "TCP"
+
+ingress:
+  host: "goapp.kyawzawaung.site"
