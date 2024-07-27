@@ -2,7 +2,7 @@ replicaCount: 2
 containerPort: 8080
 
 image:
-  repository: testingkyaw/go-app
+  repository: 403922132857.dkr.ecr.us-east-1.amazonaws.com/goapp
   tag: "v30"
   pullPolicy: IfNotPresent
 
@@ -14,4 +14,4 @@ service:
   protocol: "TCP"
 
 ingress:
-  host: "goapp.kyawzawaung.site"
+  host: "app.kyawzawaung.site"
