@@ -3,6 +3,8 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'manifests/go-helm-chart/go-helm-chart/**'
   pull_request:
     branches: [main]
 
