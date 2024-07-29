@@ -3,7 +3,7 @@ containerPort: 8080
 
 image:
   repository: 403922132857.dkr.ecr.us-east-1.amazonaws.com/goapp
-  tag: "6571973099c3c8fd02db25d86d6f3bf3c3a47108"
+  tag: "10142105580"10142088753"6571973099c3c8fd02db25d86d6f3bf3c3a47108"
   pullPolicy: IfNotPresent
 
 service:
