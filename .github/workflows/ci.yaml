@@ -84,3 +84,7 @@ jobs:
           sed -i 's/tag: "v30"/tag: "${{ github.sha }}"/' values.yaml
           cat values.yaml
 
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: update image
+
