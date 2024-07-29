@@ -70,7 +70,7 @@ jobs:
             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
            
-  example-job:
+  update-manifest:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -79,4 +79,6 @@ jobs:
       - name: Check out the repository to the runner
         uses: actions/checkout@v3
       - name: Run a script
-        run: ls
+        run: |
+          sed -i 's/tag: "v30"/tag: "${{ github.sha }}"/' values.yaml
+
