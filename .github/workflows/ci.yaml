@@ -42,7 +42,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
 
-  dockerimagebuild:
+  dockerimagebuildpush:
     runs-on: ubuntu-latest
     needs: build
 
@@ -72,6 +72,7 @@ jobs:
            
   update-manifest:
     runs-on: ubuntu-latest
+    needs: dockerimagebuildpush
     defaults:
       run:
         working-directory: ./manifests/go-helm-chart/go-helm-chart
@@ -81,4 +82,5 @@ jobs:
       - name: Run a script
         run: |
           sed -i 's/tag: "v30"/tag: "${{ github.sha }}"/' values.yaml
+          cat values.yaml
 
