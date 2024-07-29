@@ -79,6 +79,8 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v3
+        with:
+            token: ${{ secrets.ARGO }}
       - name: Run a script
         run: |
           sed -i 's/tag: "v30"/tag: "${{ github.sha }}"/' values.yaml
